@@ -11,9 +11,9 @@ export default class UiButtonComponent extends Component {
 	 * size?: 'sm'|'lg'
 	 * outline?: boolean
 	 * color?: string = 'secondary'
-	 * disabled: boolean?
-	 * loading: boolean?
-	 * onClick: Function?
+	 * disabled?: boolean
+	 * loading?: boolean
+	 * onClick?: Function
 	 * 
 	 */
 
