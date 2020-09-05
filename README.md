@@ -23,7 +23,9 @@ ember install ember-scaffolding
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+This addon supplies the following conveniences: 
+
+* Adds the current route(s) as a CSS class to `<body>`
 
 
 Contributing
