@@ -1,1 +1,17 @@
-{{yield}}
+<div class="modal fade" tabindex="-1" {{did-insert this.didInsert}}>
+	<div class="modal-dialog {{if @size (concat "modal-" @size)}}">
+		<div class="modal-content">
+			{{#if @title}}
+				<div class="modal-header">
+					<h5 class="modal-title" style="font-weight:500;">{{@title}}</h5>
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			{{/if}}
+			<div class="modal-body">
+				{{yield}}
+			</div>
+		</div>
+	</div>
+</div>
