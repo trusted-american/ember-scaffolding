@@ -1,0 +1,12 @@
+<button
+	type={{if @submit "submit" "button"}}
+	class="btn {{if @isBlock "btn-block"}} {{if @size (concat "btn-" @size)}} btn-{{if @outline "outline-" ""}}{{if @color @color "secondary"}}"
+	disabled={{or @disabled @loading}}
+	{{on "click" (if @onClick @onClick this.dummy)}}
+	...attributes
+>
+	{{#if @loading}}
+		<span class="spinner-border spinner-border-sm" role="status"></span>
+	{{/if}}
+	{{yield}}
+</button>
