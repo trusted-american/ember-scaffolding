@@ -3,8 +3,9 @@ import Component from '@glimmer/component';
 /* 
  * ARGS
  * 
- * large?: boolean
  * centered?: boolean
+ * large?: boolean
+ * color?: 'primary'|'secondary'|... = 'secondary'
  * 
  */
 
