@@ -25,8 +25,6 @@ Usage
 
 This addon supplies the following conveniences: 
 
-* Installs `ember-truth-helpers`
-* Installs `@fortawesome/ember-fontawesome`, `@fortawesome/free-solid-svg-icons`
 * Adds the current route(s) as a CSS class to `<body>`
 
 
