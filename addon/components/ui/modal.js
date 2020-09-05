@@ -2,31 +2,30 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 /* global bootstrap */
 
+/* 
+ * ARGS
+ * 
+ * title?: string?
+ * size?: 'sm'|'lg'|'xl'
+ * onClose: Function
+ * 
+ */
+
 export default class UiModalComponent extends Component {
-
-	/* 
-	 * ARGS
-	 * 
-	 * title?: string?
-	 * size?: 'sm'|'lg'|'xl'
-	 * onClose: Function
-	 * 
-	 */
-
 	modal;
 
-	@action didInsert(el) {
-		this.modal = new bootstrap.Modal(el);
+	@action didInsert(element) {
+		this.modal = new bootstrap.Modal(element);
 		this.modal.show();
 
-		el.addEventListener('shown.bs.modal', () => {
-			let autofocus = el.querySelector('[autofocus]');
+		element.addEventListener('shown.bs.modal', () => {
+			let autofocus = element.querySelector('[autofocus]');
 			if (autofocus) {
 				autofocus.focus();
 			}
 		});
 
-		el.addEventListener('hidden.bs.modal', () => {
+		element.addEventListener('hidden.bs.modal', () => {
 			this.args.onClose();
 		});
 	}
