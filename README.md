@@ -26,6 +26,13 @@ Usage
 This addon supplies the following conveniences: 
 
 * Adds the current route(s) as a CSS class to `<body>`
+* Supplies various UI components
+	* `<Ui::Button />`
+	* `<Ui::Card />`
+	* `<Ui::ListGroup />`
+	* `<Ui::Modal />`
+	* `<Ui::Spinner />`
+	* `<Ui::Table />`
 
 
 Contributing
