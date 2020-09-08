@@ -1,0 +1,10 @@
+<div class="component-ui-property-list" ...attributes>
+	{{#if @title}}
+		<p class="text-uppercase">{{@title}}</p>
+	{{/if}}
+	<dl class="row {{if @horizontal "gx-5"}}">
+		{{yield (hash
+			item=(component "ui/property-list/item" horizontal=@horizontal)
+		)}}
+	</dl>
+</div>
