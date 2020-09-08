@@ -29,8 +29,12 @@ This addon supplies the following conveniences:
 * Supplies various UI components
 	* `<Ui::Button />`
 	* `<Ui::Card />`
+	* `<Ui::Dropdown />`
 	* `<Ui::ListGroup />`
 	* `<Ui::Modal />`
+	* `<Ui::Nav />`
+	* `<Ui::Progress />`
+	* `<Ui::PropertyList />`
 	* `<Ui::Spinner />`
 	* `<Ui::Table />`
 
