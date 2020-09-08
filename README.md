@@ -26,11 +26,18 @@ Usage
 This addon supplies the following conveniences: 
 
 * Adds the current route(s) as a CSS class to `<body>`
-* Supplies various UI components
+* Supplies 2 modifiers:
+	* `{{dropdown}}`
+	* `{{tooltip}}`
+* Supplies various UI components:
 	* `<Ui::Button />`
 	* `<Ui::Card />`
+	* `<Ui::Dropdown />`
 	* `<Ui::ListGroup />`
 	* `<Ui::Modal />`
+	* `<Ui::Nav />`
+	* `<Ui::Progress />`
+	* `<Ui::PropertyList />`
 	* `<Ui::Spinner />`
 	* `<Ui::Table />`
 
