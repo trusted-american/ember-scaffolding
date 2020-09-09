@@ -29,6 +29,9 @@ This addon supplies the following conveniences:
 * Supplies 2 modifiers:
 	* `{{dropdown}}`
 	* `{{tooltip}}`
+* Supplies 1 helper:
+	* `{{timestamp}}`
+* Supplies helpers from `ember-truth-helpers` and `ember-composable-helpers`
 * Supplies various UI components:
 	* `<Ui::Button />`
 	* `<Ui::Card />`
@@ -40,6 +43,7 @@ This addon supplies the following conveniences:
 	* `<Ui::PropertyList />`
 	* `<Ui::Spinner />`
 	* `<Ui::Table />`
+	* `<Misc::ConfirmationDialog />`
 
 
 Contributing
