@@ -3,10 +3,10 @@
 		{{yield}}
 	</div>
 	<div class="btn-toolbar" role="toolbar">
-		<div class="btn-group mr-2" role="group">
+		<div class="btn-group btn-group-sm mr-2" role="group">
 			<Ui::Button @submit={{true}} @color={{if @color @color "danger"}} @disabled={{@disabled}} @loading={{@loading}} @onClick={{@onConfirm}}>{{@confirmTitle}}</Ui::Button>
 		</div>
-		<div class="btn-group" role="group">
+		<div class="btn-group btn-group-sm" role="group">
 			<Ui::Button @onClick={{@onCancel}}>Cancel</Ui::Button>
 		</div>
 	</div>
