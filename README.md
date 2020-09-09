@@ -29,6 +29,8 @@ This addon supplies the following conveniences:
 * Supplies 2 modifiers:
 	* `{{dropdown}}`
 	* `{{tooltip}}`
+* Supplies 1 helper:
+	* `{{timestamp}}`
 * Supplies various UI components:
 	* `<Ui::Button />`
 	* `<Ui::Card />`
