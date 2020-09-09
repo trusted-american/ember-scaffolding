@@ -31,6 +31,7 @@ This addon supplies the following conveniences:
 	* `{{tooltip}}`
 * Supplies 1 helper:
 	* `{{timestamp}}`
+* Supplies helpers from `ember-truth-helpers` and `ember-composable-helpers`
 * Supplies various UI components:
 	* `<Ui::Button />`
 	* `<Ui::Card />`
