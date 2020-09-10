@@ -44,6 +44,7 @@ This addon supplies the following conveniences:
 	* `<Ui::PropertyList />`
 	* `<Ui::Spinner />`
 	* `<Ui::Table />`
+	* `<Ui::Toolbar />`
 	* `<Misc::ConfirmationDialog />`
 
 
