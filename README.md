@@ -45,7 +45,6 @@ This addon supplies the following conveniences:
 	* `<Ui::Spinner />`
 	* `<Ui::Table />`
 	* `<Misc::ConfirmationDialog />`
-	* `<Misc::DatePicker />`
 
 
 Contributing
