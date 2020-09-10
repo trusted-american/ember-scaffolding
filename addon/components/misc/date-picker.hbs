@@ -1,0 +1,9 @@
+{{!-- <EmberFlatpickr @date={{readonly (if @value @value null)}} @maxDate={{@maxDate}} @allowInput={{true}} @enableTime={{@enableTime}} @dateFormat={{if @enableTime "M j, Y h:i K" "n/j/Y"}}
+	class="form-control form-control-sm" placeholder={{@placeholder}} required={{@required}} @onChange={{this.change}} {{did-insert this.didInsert}} ...attributes /> --}}
+
+<div class="input-group input-group-sm" ...attributes>
+	<span class="input-group-text"><FaIcon @icon="calendar" /></span>
+	<EmberFlatpickr @id={{@id}} @date={{readonly (if @value @value null)}} @minDate={{@min}} @maxDate={{@max}} @allowInput={{true}} @enableTime={{@time}} @noCalendar={{@noCalendar}}
+		@dateFormat={{this.dateFormat}} @minuteIncrement={{1}}
+		class="form-control" placeholder={{@placeholder}} required={{@required}} @onChange={{this.change}} {{did-insert this.didInsert}} />
+</div>
