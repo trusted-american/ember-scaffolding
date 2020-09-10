@@ -31,6 +31,7 @@ This addon supplies the following conveniences:
 	* `{{tooltip}}`
 * Supplies 1 helper:
 	* `{{timestamp}}`
+* Installs `ember-cli-moment-shim`
 * Supplies helpers from `ember-truth-helpers` and `ember-composable-helpers`
 * Supplies various UI components:
 	* `<Ui::Button />`
@@ -43,6 +44,7 @@ This addon supplies the following conveniences:
 	* `<Ui::PropertyList />`
 	* `<Ui::Spinner />`
 	* `<Ui::Table />`
+	* `<Ui::Toolbar />`
 	* `<Misc::ConfirmationDialog />`
 
 
