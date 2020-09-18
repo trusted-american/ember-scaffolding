@@ -1,0 +1,1 @@
+export { default } from 'ember-scaffolding/components/ui/heading';
