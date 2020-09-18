@@ -38,6 +38,7 @@ This addon supplies the following conveniences:
 	* `<Ui::Button />`
 	* `<Ui::Card />`
 	* `<Ui::Dropdown />`
+	* `<Ui::Heading />`
 	* `<Ui::ListGroup />`
 	* `<Ui::Modal />`
 	* `<Ui::Nav />`
