@@ -42,6 +42,7 @@ This addon supplies the following conveniences:
 	* `<Ui::ListGroup />`
 	* `<Ui::Modal />`
 	* `<Ui::Nav />`
+	* `<Ui::Pagination />`
 	* `<Ui::Progress />`
 	* `<Ui::PropertyList />`
 	* `<Ui::Spinner />`
