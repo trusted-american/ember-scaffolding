@@ -26,6 +26,7 @@ Usage
 This addon supplies the following conveniences: 
 
 * Adds the current route(s) as a CSS class to `<body>`
+* Injects `notify` service from `ember-notify` into controllers (make sure to include `<EmberNotify />`)
 * Supplies 2 modifiers:
 	* `{{dropdown}}`
 	* `{{tooltip}}`
@@ -37,9 +38,11 @@ This addon supplies the following conveniences:
 	* `<Ui::Button />`
 	* `<Ui::Card />`
 	* `<Ui::Dropdown />`
+	* `<Ui::Heading />`
 	* `<Ui::ListGroup />`
 	* `<Ui::Modal />`
 	* `<Ui::Nav />`
+	* `<Ui::Pagination />`
 	* `<Ui::Progress />`
 	* `<Ui::PropertyList />`
 	* `<Ui::Spinner />`

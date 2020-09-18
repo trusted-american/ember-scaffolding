@@ -1,13 +1,23 @@
-<Ui::Modal @title={{@title}} @onClose={{@onCancel}}>
-	<div class="mb-3">
+<Ui::Modal @title={{@title}} @onClose={{@onCancel}} as |modal|>
+	<modal.body>
 		{{yield}}
-	</div>
-	<div class="btn-toolbar" role="toolbar">
+	</modal.body>
+	<modal.footer>
+		<Ui::Toolbar as |toolbar|>
+			<toolbar.group as |group|>
+				<group.button @color={{if @color @color "danger"}} @disabled={{@disabled}} @loading={{@loading}} @onClick={{@onConfirm}}>{{@confirmTitle}}</group.button>
+			</toolbar.group>
+			<toolbar.group class="ml-2" as |group|>
+				<group.button @onClick={{@onCancel}}>Cancel</group.button>
+			</toolbar.group>
+		</Ui::Toolbar>
+	</modal.footer>
+	{{!-- <div class="btn-toolbar" role="toolbar">
 		<div class="btn-group btn-group-sm mr-2" role="group">
 			<Ui::Button @submit={{true}} @color={{if @color @color "danger"}} @disabled={{@disabled}} @loading={{@loading}} @onClick={{@onConfirm}}>{{@confirmTitle}}</Ui::Button>
 		</div>
 		<div class="btn-group btn-group-sm" role="group">
 			<Ui::Button @onClick={{@onCancel}}>Cancel</Ui::Button>
 		</div>
-	</div>
+	</div> --}}
 </Ui::Modal>
