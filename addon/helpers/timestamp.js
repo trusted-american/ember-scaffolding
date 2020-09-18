@@ -1,10 +1,11 @@
 import { helper } from '@ember/component/helper';
+import { typeOf } from '@ember/utils';
 import moment from 'moment';
 
 export default helper(function timestamp([date, format]) {
 	if (!date) return null;
 
-	let mom = moment(date);
+	let mom = typeOf(date) === 'number' ? moment.unix(date) : moment(date);
 
 	if (format === 'date') {
 		if (moment().isSame(mom, 'year')) {
