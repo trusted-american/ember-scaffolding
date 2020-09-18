@@ -1,4 +1,4 @@
-<YetiTable @data={{@data}} @pagination={{if @pagination @pagination true}} @pageSize={{if @pageSize @pageSize 25}} as |table|>
+<YetiTable @data={{@data}} @pagination={{if @pagination @pagination true}} @pageSize={{if @pageSize @pageSize 25}} ...attributes as |table|>
 	{{yield table}}
 	<table.tfoot as |foot|>
 		<foot.row as |row|>
