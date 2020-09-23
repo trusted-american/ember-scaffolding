@@ -51,6 +51,7 @@ This addon supplies the following conveniences:
 	* `<Ui::Table />`
 	* `<Ui::Toolbar />`
 	* `<Misc::ConfirmationDialog />`
+	* `<Misc::Placeholder />`
 
 
 Contributing
