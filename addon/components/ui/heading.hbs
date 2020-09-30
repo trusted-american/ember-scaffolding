@@ -1,6 +1,14 @@
-<div class="mb-4" ...attributes>
-	<h1 class="mb-0">{{@title}}</h1>
-	{{#if @subtitle}}
-		<p class="mt-2 mb-0">{{@subtitle}}</p>
+<div class="border-bottom pb-2" ...attributes>
+	{{#if @type}}
+		<div class="d-flex justify-content-between align-items-end text-muted mb-2">
+			<h6 class="font-weight-normal text-uppercase mb-0" style="font-size:.8125rem;">{{@type}}</h6>
+			{{#if @code}}
+				<h6 class="font-weight-normal font-monospace mb-0" style="font-size:.8125rem;">{{@code}}</h6>
+			{{/if}}
+		</div>
 	{{/if}}
+	<div class="d-flex justify-content-between align-items-end">
+		<h3 class="mb-0">{{@title}}</h3>
+		{{yield}}
+	</div>
 </div>
