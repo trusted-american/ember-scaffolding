@@ -48,6 +48,7 @@ This addon supplies the following conveniences:
 	* `<Ui::Progress />`
 	* `<Ui::PropertyList />`
 	* `<Ui::Spinner />`
+	* `<Ui::Subheading />`
 	* `<Ui::Table />`
 	* `<Ui::Toolbar />`
 	* `<Misc::ConfirmationDialog />`
