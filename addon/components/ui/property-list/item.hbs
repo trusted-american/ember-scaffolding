@@ -6,7 +6,7 @@
 				<a href="#" class="text-muted ml-2"><i class="fas fa-info-circle" {{tooltip @tooltip}}></i></a>
 			{{/if}}
 		</dt>
-		<dd class="">
+		<dd class="" ...attributes>
 			{{#if @alt}}
 				<span class="text-disabled">{{@alt}}</span>
 			{{else}}
@@ -16,7 +16,7 @@
 	</div>
 {{else}}
 	<dt class="col-4 text-muted">{{@key}}</dt>
-	<dd class="col-8">
+	<dd class="col-8" ...attributes>
 		{{#if @alt}}
 			<span class="text-disabled">{{@alt}}</span>
 		{{else}}
