@@ -7,6 +7,7 @@ import { action } from '@ember/object';
  * 
  * title?: string?
  * size?: 'sm'|'lg'|'xl'
+ * static?: boolean
  * onClose: Function
  * 
  */
@@ -15,7 +16,7 @@ export default class UiModalComponent extends Component {
 	modal;
 
 	@action didInsert(element) {
-		this.modal = new bootstrap.Modal(element);
+		this.modal = new bootstrap.Modal(element, { backdrop: this.args.static ? 'static' : true });
 		this.modal.show();
 
 		element.addEventListener('shown.bs.modal', () => {
