@@ -1,51 +1,50 @@
-<Ui::Button @isSmall={{true}} {{dropdown}}>
+{{! button }}
+<Ui::Button {{dropdown}}>
 	<FaIcon @icon="filter" />&nbsp; Filter
-	{{#if this.selections}}
-		&nbsp;<span class="text-primary">{{this.selections.length}}</span>
-	{{/if}}
+	{{#if this.selections}}&nbsp;{{this.selections.length}}{{/if}}
 </Ui::Button>
 
+{{! dropdown }}
 <Ui::Dropdown @align="right" @linger={{true}} class="p-0" style="width:300px;">
 	<Ui::ListGroup @flush={{true}} as |listGroup|>
 
 		<listGroup.item class="bg-light px-2">
-			<Ui::Toolbar as |toolbar|>
+			<Ui::Toolbar @size="sm" class="justify-content-between" as |toolbar|>
 				<toolbar.group as |group|>
 					<group.button @onClick={{this.clear}}>Clear</group.button>
 				</toolbar.group>
-				<toolbar.spacer />
 				<toolbar.group as |group|>
 					<group.button @color="primary" @onClick={{this.done}}>Done</group.button>
 				</toolbar.group>
 			</Ui::Toolbar>
 		</listGroup.item>
 			
-		{{#each this.options as |optioner index|}}
+		{{#each this.filters as |filter index|}}
 
 			<listGroup.item class="px-2">
-				<div class="form-check" style="margin-bottom:0;min-height:0;">
-					<Input @type="checkbox" @checked={{optioner.checked}} id="filterOption{{index}}" class="form-check-input" {{on "change" (fn this.check optioner)}} />
-					<label class="form-check-label" for="filterOption{{index}}">{{optioner.name}}</label>
+				<div class="form-check mb-0" style="min-height:0;">
+					<Input @checked={{filter.value}} @type="checkbox" id="filter{{index}}" class="form-check-input" {{on "change" (fn this.toggle index)}} />
+					<label class="form-check-label" for="filter{{index}}">{{filter.name}}</label>
 				</div>
 			</listGroup.item>
 
-			{{#if optioner.checked}}
+			{{#if filter.value}}
 				<listGroup.item class="bg-light px-2">
-					<select class="form-select form-select-sm" {{on "change" (fn this.select optioner)}}>
-						{{#each optioner.values as |value valueIndex|}}
-							<option value={{valueIndex}} selected={{eq optioner.checked value.attr}}>{{value.name}}</option>
+					<select class="form-select form-select-sm" {{on "change" (fn this.select filter)}}>
+						{{#each filter.options as |filterOption filterOptionIndex|}}
+							<option value={{filterOptionIndex}} selected={{eq filter.checked filterOption}}>{{filterOption}}</option>
 						{{/each}}
 					</select>
-					{{#if (eq optioner.type "date")}}
+					{{#if (eq filter.type "date")}}
 						<div class="d-flex align-items-center mt-2">
 							<div>
-								<Ui::DatePicker @value={{optioner.checked.from}} @onChange={{fn (mut optioner.checked.from)}} />
+								<Ui::DatePicker @value={{filter.checked.from}} @onChange={{fn (mut filter.checked.from)}} />
 							</div>
 							<div class="mx-3">
 								<FaIcon @icon="arrow-right" />
 							</div>
 							<div>
-								<Ui::DatePicker @value={{optioner.checked.to}} @onChange={{fn (mut optioner.checked.to)}} />
+								<Ui::DatePicker @value={{filter.checked.to}} @onChange={{fn (mut filter.checked.to)}} />
 							</div>
 						</div>
 					{{/if}}
