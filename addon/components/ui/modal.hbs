@@ -1,5 +1,5 @@
 <div class="modal fade" tabindex="-1" {{did-insert this.didInsert}}>
-	<div class="modal-dialog {{if @size (concat "modal-" @size)}}">
+	<div class="modal-dialog {{if @size (concat "modal-" @size)}} {{if @scroll "modal-dialog-scrollable"}}">
 		<div class="modal-content">
 			{{#if @title}}
 				<div class="modal-header">

@@ -8,6 +8,7 @@ import { action } from '@ember/object';
  * title?: string?
  * size?: 'sm'|'lg'|'xl'
  * static?: boolean
+ * scroll?: boolean
  * onClose: Function
  * 
  */
