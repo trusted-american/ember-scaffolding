@@ -1,5 +1,4 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 
 /* 
  * ARGS
@@ -16,7 +15,4 @@ import { action } from '@ember/object';
  */
 
 export default class UiButtonComponent extends Component {
-	@action dummy() {
-		// used when @onClick function isn't passed (for submit-type buttons)
-	}
 }
