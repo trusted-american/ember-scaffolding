@@ -30,8 +30,9 @@ This addon supplies the following conveniences:
 * Supplies 2 modifiers:
 	* `{{dropdown}}`
 	* `{{tooltip}}`
-* Supplies 1 helper:
+* Supplies 3 helpers:
 	* `{{currency}}`
+	* `{{from-now}}`
 	* `{{number}}`
 	* `{{timestamp}}`
 * Installs `ember-data-storefront` and `ember-cli-moment-shim`
