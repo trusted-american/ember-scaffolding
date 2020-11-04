@@ -30,8 +30,9 @@ This addon supplies the following conveniences:
 * Supplies 2 modifiers:
 	* `{{dropdown}}`
 	* `{{tooltip}}`
-* Supplies 3 helpers:
+* Supplies various helpers:
 	* `{{currency}}`
+	* `{{file-size}}`
 	* `{{from-now}}`
 	* `{{number}}`
 	* `{{timestamp}}`
