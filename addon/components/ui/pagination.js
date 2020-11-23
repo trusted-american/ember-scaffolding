@@ -2,14 +2,12 @@ import Component from '@glimmer/component';
 
 /* 
  * ARGS
- * 
  * curPage: number
  * perPage: number
  * totalItems: number
  * onNext: Function
  * onPrevious: Function
  * onSelect: Function
- * 
  */
 
 export default class UiPaginationComponent extends Component {

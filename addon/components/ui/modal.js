@@ -4,13 +4,11 @@ import { action } from '@ember/object';
 
 /* 
  * ARGS
- * 
  * title?: string?
  * size?: 'sm'|'lg'|'xl'
  * static?: boolean
  * scroll?: boolean
  * onClose: Function
- * 
  */
 
 export default class UiModalComponent extends Component {

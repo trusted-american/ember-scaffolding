@@ -3,10 +3,8 @@ import { action } from '@ember/object';
 
 /* 
  * ARGS
- * 
  * align?: 'right'
  * linger?: boolean
- * 
  */
 
 export default class UiDropdownComponent extends Component {
