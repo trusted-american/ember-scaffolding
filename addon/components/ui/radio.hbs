@@ -1,0 +1,6 @@
+<div class="btn-group btn-group-sm mb-4" role="group">
+	{{#each @options as |option index|}}
+		<input type="radio" class="btn-check" name="btnradio" id="btnradio{{index}}" autocomplete="off" checked={{eq @value option.value}} {{on "change" (fn @onChange option.value)}}>
+		<label class="btn btn-secondary" for="btnradio{{index}}">{{option.title}}</label>
+	{{/each}}
+</div>

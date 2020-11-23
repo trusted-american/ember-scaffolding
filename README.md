@@ -39,6 +39,8 @@ This addon supplies the following conveniences:
 * Installs `ember-data-storefront` and `ember-cli-moment-shim`
 * Supplies helpers from `ember-truth-helpers` and `ember-composable-helpers`
 * Supplies various UI components:
+	* `<Ui::Accordion />`
+	* `<Ui::Alert />`
 	* `<Ui::Button />`
 	* `<Ui::Card />`
 	* `<Ui::Dropdown />`
@@ -49,6 +51,7 @@ This addon supplies the following conveniences:
 	* `<Ui::Pagination />`
 	* `<Ui::Progress />`
 	* `<Ui::PropertyList />`
+	* `<Ui::Radio />`
 	* `<Ui::Spinner />`
 	* `<Ui::Subheading />`
 	* `<Ui::Table />`
