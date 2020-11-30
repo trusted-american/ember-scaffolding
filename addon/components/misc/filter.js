@@ -5,6 +5,20 @@ import { tracked } from '@glimmer/tracking';
 import { action, set } from '@ember/object';
 import { filter } from '@ember/object/computed';
 
+/**
+ * ARGS
+ * filters: Filter[]
+ * onChange: Function
+ * 
+ * interface Filter {
+ *   name: string;
+ *   key: string;
+ *   value: any;
+ *   type?: 'date'|'multi';
+ *   options: any[];
+ * }
+ */
+
 export default class MiscFilterComponent extends Component {
 	@tracked options;
 
