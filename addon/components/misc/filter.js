@@ -10,7 +10,7 @@ export default class MiscFilterComponent extends Component {
 
 	constructor() {
 		super(...arguments);
-		assert('<Misc::Filter />: Must pass a filters array', typeOf(this.args.filters) === 'object');
+		assert('<Misc::Filter />: Must pass a filters array', typeOf(this.args.filters) === 'array');
 		assert('<Misc::Filter />: Must pass an onChange function', typeOf(this.args.onChange) === 'function');
 
 		this.filters = this.args.filters;
