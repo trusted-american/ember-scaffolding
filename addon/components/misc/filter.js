@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
+import { typeOf } from '@ember/utils';
+import { tracked } from '@glimmer/tracking';
 import { action, set } from '@ember/object';
 import { filter } from '@ember/object/computed';
 
@@ -9,8 +10,8 @@ export default class MiscFilterComponent extends Component {
 
 	constructor() {
 		super(...arguments);
-		assert('<Filter />: Must pass a filters array', typeof this.args.filters === 'object');
-		assert('<Filter />: Must pass an onChange function', typeof this.args.onChange === 'function');
+		assert('<Misc::Filter />: Must pass a filters array', typeOf(this.args.filters) === 'object');
+		assert('<Misc::Filter />: Must pass an onChange function', typeOf(this.args.onChange) === 'function');
 
 		this.filters = this.args.filters;
 	}
