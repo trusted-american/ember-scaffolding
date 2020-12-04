@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 /**
  * ARGS
  * color?: string
- * icon: string
+ * icon?: string
  * content: string
  */
 

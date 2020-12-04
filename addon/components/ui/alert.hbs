@@ -1,3 +1,6 @@
 <div class="alert alert-{{if @color @color "success"}} small mb-4" role="alert" ...attributes>
-	<FaIcon @icon={{@icon}} class="text-{{if @color @color "success"}}" />&nbsp; {{@content}}
+	{{#if @icon}}
+		<FaIcon @icon={{@icon}} class="text-{{if @color @color "success"}}" />&nbsp;
+	{{/if}}
+	{{@content}}
 </div>
