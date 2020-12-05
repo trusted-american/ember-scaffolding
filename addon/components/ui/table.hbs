@@ -2,7 +2,7 @@
 	{{yield table}}
 	<table.tfoot as |foot|>
 		<foot.row as |row|>
-			<row.cell @visible={{true}} colspan={{table.visibleColumns.length}}>
+			<row.cell @visible={{true}} colspan={{table.columns.length}}>
 				<table.pagination />
 			</row.cell>
 		</foot.row>
