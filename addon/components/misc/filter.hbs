@@ -6,52 +6,54 @@
 
 {{! dropdown }}
 <Ui::Dropdown @align="right" @linger={{true}} class="p-0" style="width:300px;">
-	<Ui::ListGroup @flush={{true}} as |listGroup|>
+	<form {{on "submit" this.done}}>
+		<Ui::ListGroup @flush={{true}} as |listGroup|>
 
-		<listGroup.item class="bg-light px-2">
-			<Ui::Toolbar @size="sm" class="justify-content-between" as |toolbar|>
-				<toolbar.group as |group|>
-					<group.button @onClick={{this.clear}}>Clear</group.button>
-				</toolbar.group>
-				<toolbar.group as |group|>
-					<group.button @color="primary" @onClick={{this.done}}>Done</group.button>
-				</toolbar.group>
-			</Ui::Toolbar>
-		</listGroup.item>
-			
-		{{#each this.filters as |filter index|}}
-
-			<listGroup.item class="px-2">
-				<div class="form-check mb-0" style="min-height:0;">
-					<Input @checked={{filter.value}} @type="checkbox" id="filter{{index}}" class="form-check-input" {{on "change" (fn this.toggle index)}} />
-					<label class="form-check-label" for="filter{{index}}">{{filter.name}}</label>
-				</div>
+			<listGroup.item class="bg-light px-2">
+				<Ui::Toolbar @size="sm" class="justify-content-between" as |toolbar|>
+					<toolbar.group as |group|>
+						<group.button @onClick={{this.clear}}>Clear</group.button>
+					</toolbar.group>
+					<toolbar.group as |group|>
+						<group.button @submit={{true}} @color="primary">Done</group.button>
+					</toolbar.group>
+				</Ui::Toolbar>
 			</listGroup.item>
+				
+			{{#each this.filters as |filter index|}}
 
-			{{#if filter.value}}
-				<listGroup.item class="bg-light px-2">
-					<select class="form-select form-select-sm" {{on "change" (fn this.select filter)}}>
-						{{#each filter.options as |filterOption filterOptionIndex|}}
-							<option value={{filterOptionIndex}} selected={{eq filter.checked filterOption}}>{{filterOption}}</option>
-						{{/each}}
-					</select>
-					{{#if (eq filter.type "date")}}
-						<div class="d-flex align-items-center mt-2">
-							<div>
-								<Ui::DatePicker @value={{filter.checked.from}} @onChange={{fn (mut filter.checked.from)}} />
-							</div>
-							<div class="mx-3">
-								<FaIcon @icon="arrow-right" />
-							</div>
-							<div>
-								<Ui::DatePicker @value={{filter.checked.to}} @onChange={{fn (mut filter.checked.to)}} />
-							</div>
-						</div>
-					{{/if}}
-				</listGroup.item>
-			{{/if}}
+				<label class="list-group-item px-2">
+					<Input @checked={{filter.value}} @type="checkbox" class="form-check-input mr-1" {{on "change" (fn this.toggle index)}} />
+					{{filter.name}}
+				</label>
 
-		{{/each}}
-		
-	</Ui::ListGroup>
+				{{#if filter.value}}
+					<listGroup.item class="bg-light px-2">
+						<select class="form-select form-select-sm" {{on "change" (fn this.select filter)}}>
+							{{#each filter.options as |filterOption filterOptionIndex|}}
+								<option value={{filterOptionIndex}} selected={{eq filter.checked filterOption}}>{{filterOption}}</option>
+							{{/each}}
+						</select>
+						{{#if (eq filter.type "date")}}
+							<div class="d-flex align-items-center mt-2">
+								<div>
+									{{!-- <Ui::DatePicker @value={{filter.checked.from}} @onChange={{fn (mut filter.checked.from)}} /> --}}
+									<DateInput @value={{filter.checked.from}} class="form-control form-control-sm" required="true" @onChange={{fn (mut filter.checked.from)}} />
+								</div>
+								<div class="mx-3">
+									<FaIcon @icon="arrow-right" />
+								</div>
+								<div>
+									{{!-- <Ui::DatePicker @value={{filter.checked.to}} @onChange={{fn (mut filter.checked.to)}} /> --}}
+									<DateInput @value={{filter.checked.to}} class="form-control form-control-sm" required="true" @onChange={{fn (mut filter.checked.to)}} />
+								</div>
+							</div>
+						{{/if}}
+					</listGroup.item>
+				{{/if}}
+
+			{{/each}}
+			
+		</Ui::ListGroup>
+	</form>
 </Ui::Dropdown>
