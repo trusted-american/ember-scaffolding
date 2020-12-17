@@ -1,4 +1,8 @@
-<YetiTable @data={{@data}} @pagination={{if @pagination @pagination true}} @pageSize={{if @pageSize @pageSize 25}} ...attributes as |table|>
+<YetiTable @data={{@data}} @loadData={{@onLoad}} @pagination={{if @pagination @pagination true}} @pageSize={{if @pageSize @pageSize 15}} ...attributes as |table|>
+	{{#if table.isLoading}}
+		<Ui::Spinner @centered={{true}} />
+	{{else}}
+	{{/if}}
 	{{yield table}}
 	<table.tfoot as |foot|>
 		<foot.row as |row|>
