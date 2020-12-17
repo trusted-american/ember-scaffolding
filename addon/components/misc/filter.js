@@ -67,7 +67,8 @@ export default class MiscFilterComponent extends Component {
 	/**
 	 * done
 	 */
-	@action done() {
+	@action done(event) {
+		event.preventDefault();
 		this.args.onChange(this.filters);
 	}
 }
