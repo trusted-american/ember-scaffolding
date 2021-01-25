@@ -7,13 +7,13 @@
 			<toolbar.group as |group|>
 				<group.button @color={{if @color @color "danger"}} @disabled={{@disabled}} @loading={{@loading}} @onClick={{@onConfirm}}>{{@confirmTitle}}</group.button>
 			</toolbar.group>
-			<toolbar.group class="ml-2" as |group|>
+			<toolbar.group class="ms-2" as |group|>
 				<group.button @onClick={{@onCancel}}>Cancel</group.button>
 			</toolbar.group>
 		</Ui::Toolbar>
 	</modal.footer>
 	{{!-- <div class="btn-toolbar" role="toolbar">
-		<div class="btn-group btn-group-sm mr-2" role="group">
+		<div class="btn-group btn-group-sm me-2" role="group">
 			<Ui::Button @submit={{true}} @color={{if @color @color "danger"}} @disabled={{@disabled}} @loading={{@loading}} @onClick={{@onConfirm}}>{{@confirmTitle}}</Ui::Button>
 		</div>
 		<div class="btn-group btn-group-sm" role="group">

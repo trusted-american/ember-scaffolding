@@ -23,7 +23,7 @@
 			{{#each this.filters as |filter index|}}
 
 				<label class="list-group-item px-2">
-					<Input @checked={{filter.value}} @type="checkbox" class="form-check-input mr-1" {{on "change" (fn this.toggle index)}} />
+					<Input @checked={{filter.value}} @type="checkbox" class="form-check-input me-1" {{on "change" (fn this.toggle index)}} />
 					{{filter.name}}
 				</label>
 
