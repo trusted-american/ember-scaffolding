@@ -10,7 +10,7 @@ export function initialize(application) {
 			document.querySelector(application.rootElement).classList.remove(this.toClass());
 		},
 		toClass() {
-			return 'route-' + decamelize(this.routeName.replace(/\./g, '-'));
+			return 'route-' + dasherize(this.routeName.replace(/\./g, '-'));
 			// return 'route-' + this.routeName.replace(/\./g, '-').dasherize();
 		}
 	});
