@@ -1,4 +1,5 @@
 import Route from '@ember/routing/route';
+import { dasherize } from '@ember/string';
 
 export function initialize(application) {
 	Route.reopen({
@@ -9,7 +10,8 @@ export function initialize(application) {
 			document.querySelector(application.rootElement).classList.remove(this.toClass());
 		},
 		toClass() {
-			return 'route-' + this.routeName.replace(/\./g, '-').dasherize();
+			return 'route-' + decamelize(this.routeName.replace(/\./g, '-'));
+			// return 'route-' + this.routeName.replace(/\./g, '-').dasherize();
 		}
 	});
 }
