@@ -1,6 +1,5 @@
 <div class="progress" ...attributes>
-	<div id={{id}} class="progress-bar" role="progressbar"></div>
+	{{yield (hash
+		bar=(component "ui/progress/bar")
+	)}}
 </div>
-<style>
-	#{{this.id}} { width: {{@value}}%; }
-</style>
