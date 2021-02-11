@@ -2,12 +2,13 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 /* global bootstrap */
 
-/* 
+/**
  * ARGS
  * title?: string?
  * size?: 'sm'|'lg'|'xl'
  * static?: boolean
  * scroll?: boolean
+ * fullscreen?: boolean
  * onClose: Function
  */
 
