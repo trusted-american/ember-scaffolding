@@ -5,7 +5,7 @@
 </Ui::Button>
 
 {{! dropdown }}
-<Ui::Dropdown @align="right" @linger={{true}} class="p-0" style="width:300px;">
+<Ui::Dropdown @align="right" @linger={{true}} class="p-0" style={{html-safe "width:300px;"}}>
 	<form {{on "submit" this.done}}>
 		<Ui::ListGroup @flush={{true}} as |listGroup|>
 
