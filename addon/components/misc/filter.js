@@ -51,9 +51,9 @@ export default class MiscFilterComponent extends Component {
 	/**
 	 * select
 	 */
-	@action select(filter, { target }) {
-		let option = filter.options.objectAt(target.value);
-		set(filter, 'value', option);
+	@action select(predicate, { target }) {
+		let option = predicate.options.objectAt(target.value);
+		set(predicate, 'value', option);
 	}
 
 	/**
