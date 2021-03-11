@@ -38,7 +38,7 @@ export default class MiscFilterComponent extends Component {
 		event.stopPropagation();
 
 		if (event.target.checked) {
-			set(predicate, 'value', predicate.options.firstObject);
+			set(predicate, 'value', predicate.options.firstObject.value);
 		} else {
 			set(predicate, 'value', null);
 		}
