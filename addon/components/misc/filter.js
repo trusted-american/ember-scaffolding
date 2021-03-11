@@ -7,15 +7,15 @@ import { filter } from '@ember/object/computed';
 
 /**
  * ARGS
- * filters: Filter[]
+ * predicates: Predicate[]
  * onChange: Function
  * 
- * interface Filter {
+ * interface Predicate {
  *   name: string;
  *   key: string;
  *   value: any;
  *   type?: 'date'|'multi';
- *   options: any[];
+ *   options: { value: string, label: string }[];
  * }
  */
 
@@ -24,51 +24,37 @@ export default class MiscFilterComponent extends Component {
 
 	constructor() {
 		super(...arguments);
-		assert('<Misc::Filter />: Must pass a filters array', typeOf(this.args.filters) === 'array');
+		assert('<Misc::Filter />: Must pass a predicates array', typeOf(this.args.predicates) === 'array');
 		assert('<Misc::Filter />: Must pass an onChange function', typeOf(this.args.onChange) === 'function');
 
-		this.filters = this.args.filters;
+		this.predicates = this.args.predicates;
 	}
 
-	@filter('args.filters.@each.value', function(filter) {
-		return !!filter.value;
+	@filter('args.predicates.@each.value', function(predicate) {
+		return !!predicate.value;
 	}) selections;
 
-	/**
-	 * toggle
-	 */
-	@action toggle(filterIndex, event) {
+	@action toggle(predicate, event) {
 		event.stopPropagation();
 
-		let filter = this.filters.objectAt(filterIndex);
 		if (event.target.checked) {
-			set(filter, 'value', filter.options.firstObject);
+			set(predicate, 'value', predicate.options.firstObject);
 		} else {
-			set(filter, 'value', null);
+			set(predicate, 'value', null);
 		}
 	}
 
-	/**
-	 * select
-	 */
 	@action select(predicate, { target }) {
-		let option = predicate.options.objectAt(target.value);
-		set(predicate, 'value', option);
+		set(predicate, 'value', target.value);
 	}
 
-	/**
-	 * clear
-	 */
 	@action clear() {
-		this.filters.setEach('value', null);
-		this.args.onChange(this.filters);
+		this.predicates.setEach('value', null);
+		this.args.onChange(this.predicates);
 	}
 	
-	/**
-	 * done
-	 */
 	@action done(event) {
 		event.preventDefault();
-		this.args.onChange(this.filters);
+		this.args.onChange(this.predicates);
 	}
 }

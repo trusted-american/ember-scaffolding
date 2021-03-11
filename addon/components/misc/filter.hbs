@@ -19,18 +19,18 @@
 			</Ui::Toolbar>
 		</listGroup.item>
 			
-		{{#each this.filters as |predicate index|}}
+		{{#each this.predicates as |predicate|}}
 
 			<label class="list-group-item px-2">
-				<Input @checked={{predicate.value}} @type="checkbox" class="form-check-input me-1" {{on "change" (fn this.toggle index)}} />
+				<Input @checked={{predicate.value}} @type="checkbox" class="form-check-input me-1" {{on "change" (fn this.toggle predicate)}} />
 				{{predicate.name}}
 			</label>
 
 			{{#if predicate.value}}
 				<listGroup.item class="bg-light px-2">
 					<select class="form-select form-select-sm" {{on "change" (fn this.select predicate)}}>
-						{{#each predicate.options as |opt optIndex|}}
-							<option value={{optIndex}} selected={{eq predicate.value opt}}>{{opt}}</option>
+						{{#each predicate.options as |opt|}}
+							<option value={{opt.value}} selected={{eq predicate.value opt.value}}>{{opt.label}}</option>
 						{{/each}}
 					</select>
 					{{#if (eq predicate.type "date")}}
