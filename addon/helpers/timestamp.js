@@ -8,11 +8,12 @@ export default helper(function timestamp([date, format]) {
 	let mom = typeOf(date) === 'number' ? moment.unix(date) : moment(date);
 
 	if (format === 'date') {
-		if (moment().isSame(mom, 'year')) {
-			return mom.format('MMM D');
-		} else {
-			return mom.format('MMM D, Y');
-		}
+		return mom.format('MMM D, Y');
+		// if (moment().isSame(mom, 'year')) {
+		// 	return mom.format('MMM D');
+		// } else {
+		// 	return mom.format('MMM D, Y');
+		// }
 	} else if (format === 'time') {
 		return mom.format('h:mm A');
 	} else {
