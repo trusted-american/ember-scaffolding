@@ -12,7 +12,7 @@ export default helper(function currency([amount, cents = false, accountingStyle 
 			currency: 'USD',
 			minimumFractionDigits: 2,
 		});
-		return amount < 0 ? '(' + returnString + ')' : returnString;
+		return '$' + ( amount < 0 ? '(' + returnString + ')' : returnString );
 	}
 
 	return amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
