@@ -17,6 +17,6 @@ export default helper(function timestamp([date, format]) {
 	} else if (format === 'time') {
 		return mom.format('h:mm A');
 	} else {
-		return mom.format('MMM D, h:mm A');
+		return mom.format('MMM D, Y at h:mm A');
 	}
 });
