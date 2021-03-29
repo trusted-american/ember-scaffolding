@@ -1,0 +1,9 @@
+<div class="offcanvas offcanvas-{{if @placement @placement "start"}}" tabindex="-1" id="offcanvas">
+	<div class="offcanvas-header">
+		<h5 class="offcanvas-title">{{@title}}</h5>
+		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+	</div>
+	<div class="offcanvas-body">
+		{{yield}}
+	</div>
+</div>
