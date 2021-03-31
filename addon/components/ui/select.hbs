@@ -1,0 +1,5 @@
+<select class="form-select" {{on "change" this.change}} ...attributes>
+	{{#each @options as |opt|}}
+		<option value={{opt.value}}>{{opt.label}}</option>
+	{{/each}}
+</select>
