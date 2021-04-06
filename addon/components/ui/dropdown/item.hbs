@@ -1,0 +1,11 @@
+<button
+	type="button"
+	class="dropdown-item {{if @color (concat "text-" @color)}}"
+	disabled={{@disabled}}
+	{{on "click" @onClick}}
+>
+	{{#if @icon}}
+		<FaIcon @icon={{@icon}} @fixedWidth={{true}} />&nbsp; 
+	{{/if}}
+	{{@label}}
+</button>
