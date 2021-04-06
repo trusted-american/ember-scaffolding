@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-/* 
+/**
  * ARGS
  * submit?: boolean
  * isBlock?: boolean

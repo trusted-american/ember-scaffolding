@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-/* 
+/**
  * ARGS
  * curPage: number
  * perPage: number

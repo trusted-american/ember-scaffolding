@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-/* 
+/**
  * ARGS
  * align?: 'right'
  * linger?: boolean
