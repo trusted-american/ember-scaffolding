@@ -30,8 +30,8 @@ export default class MiscFilterComponent extends Component {
 		this.predicates = this.args.predicates;
 	}
 
-	@filter('args.predicates.@each.value', function(predicate) {
-		return !!predicate.value;
+	@filter('args.predicates.@each.value', function (predicate) {
+		return !!predicate.value || predicate.value === false;
 	}) selections;
 
 	@action toggle(predicate, event) {
@@ -52,7 +52,7 @@ export default class MiscFilterComponent extends Component {
 		this.predicates.setEach('value', null);
 		this.args.onChange(this.predicates);
 	}
-	
+
 	@action done(event) {
 		event.preventDefault();
 		this.args.onChange(this.predicates);
