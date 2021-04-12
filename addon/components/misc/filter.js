@@ -26,12 +26,14 @@ export default class MiscFilterComponent extends Component {
 		super(...arguments);
 		assert('<Misc::Filter />: Must pass a predicates array', typeOf(this.args.predicates) === 'array');
 		assert('<Misc::Filter />: Must pass an onChange function', typeOf(this.args.onChange) === 'function');
+	}
 
-		this.predicates = this.args.predicates;
+	get predicates() {
+		return this.args.predicates;
 	}
 
 	@filter('args.predicates.@each.value', function (predicate) {
-		return !!predicate.value || predicate.value === false;
+		return !!predicate.value;
 	}) selections;
 
 	@action toggle(predicate, event) {
