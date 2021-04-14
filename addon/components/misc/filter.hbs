@@ -1,5 +1,5 @@
 {{! button }}
-<Ui::Button {{dropdown}}>
+<Ui::Button @color={{if this.selections "primary" "secondary"}} {{dropdown}}>
 	<FaIcon @icon="filter" />&nbsp; Filter
 	{{#if this.selections}}&nbsp;{{this.selections.length}}{{/if}}
 </Ui::Button>
