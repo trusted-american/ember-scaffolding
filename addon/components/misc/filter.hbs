@@ -6,52 +6,78 @@
 
 {{! dropdown }}
 <Ui::Dropdown @align="right" @linger={{true}} class="p-0">
-	<Ui::ListGroup @flush={{true}} as |listGroup|>
+	<form novalidate="true" {{on "submit" this.done}}>
+		<Ui::ListGroup @flush={{true}} as |listGroup|>
 
-		<listGroup.item class="bg-light px-2">
-			<Ui::Toolbar @size="sm" class="justify-content-between" as |toolbar|>
-				<toolbar.group as |group|>
-					<group.button @onClick={{this.clear}}>Clear</group.button>
-				</toolbar.group>
-				<toolbar.group as |group|>
-					<group.button @color="primary" @onClick={{this.done}}>Done</group.button>
-				</toolbar.group>
-			</Ui::Toolbar>
-		</listGroup.item>
-			
-		{{#each this.predicates as |predicate|}}
+			<listGroup.item class="bg-light px-2">
+				<Ui::Toolbar @size="sm" class="justify-content-between" as |toolbar|>
+					<toolbar.group as |group|>
+						<group.button @onClick={{this.clear}}>Clear</group.button>
+					</toolbar.group>
+					<toolbar.group as |group|>
+						<group.button @submit={{true}} @color="primary">Done</group.button>
+					</toolbar.group>
+				</Ui::Toolbar>
+			</listGroup.item>
 
-			<label class="list-group-item px-2">
-				<Input @checked={{predicate.value}} @type="checkbox" class="form-check-input me-1" {{on "change" (fn this.toggle predicate)}} />
-				{{predicate.name}}
-			</label>
+			{{#each this.predicates as |predicate|}}
 
-			{{#if predicate.value}}
-				<listGroup.item class="bg-light px-2">
-					<select class="form-select form-select-sm" {{on "change" (fn this.select predicate)}}>
-						{{#each predicate.options as |opt|}}
-							<option value={{opt.value}} selected={{eq predicate.value opt.value}}>{{opt.label}}</option>
-						{{/each}}
-					</select>
-					{{#if (eq predicate.type "date")}}
-						<div class="d-flex align-items-center mt-2">
-							<div>
-								{{!-- <Ui::DatePicker @value={{filter.checked.from}} @onChange={{fn (mut filter.checked.from)}} /> --}}
-								<DateInput @value={{predicate.checked.from}} class="form-control form-control-sm" required="true" @onChange={{fn (mut predicate.checked.from)}} />
-							</div>
-							<div class="mx-3">
-								<FaIcon @icon="arrow-right" />
-							</div>
-							<div>
-								{{!-- <Ui::DatePicker @value={{filter.checked.to}} @onChange={{fn (mut filter.checked.to)}} /> --}}
-								<DateInput @value={{predicate.checked.to}} class="form-control form-control-sm" required="true" @onChange={{fn (mut predicate.checked.to)}} />
-							</div>
-						</div>
-					{{/if}}
-				</listGroup.item>
-			{{/if}}
+				<label class="list-group-item px-2">
+					<input checked={{or predicate.value (gt predicate.value.length 0)}} type="checkbox" class="form-check-input me-1" {{on "change" (fn this.toggle predicate)}}>
+					{{predicate.name}}
+				</label>
 
-		{{/each}}
-		
-	</Ui::ListGroup>
+				{{#if predicate.value}}
+					<listGroup.item class="bg-light px-2">
+
+						{{#if (eq predicate.type "date")}}
+
+							<select class="form-select form-select-sm mb-2" {{on "change" (action (mut predicate.mode) value="target.value" )}}>
+								<option value="inTheLast" selected={{eq predicate.mode "inTheLast" }}>is in the last</option>
+								<option value="equals" selected={{eq predicate.mode "equals" }}>is equal to</option>
+								<option value="between" selected={{eq predicate.mode "between" }}>is between</option>
+								<option value="isAfter" selected={{eq predicate.mode "isAfter" }}>is after</option>
+								<option value="isAfterOrOn" selected={{eq predicate.mode "isAfterOrOn" }}>is on or after</option>
+								<option value="isBefore" selected={{eq predicate.mode "isBefore" }}>is before</option>
+								<option value="isBeforeOrOn" selected={{eq predicate.mode "isBeforeOrOn" }}>is before or on</option>
+							</select>
+
+							{{#if (eq predicate.mode "inTheLast")}}
+								<Input @value={{predicate.valueA}} @type="number" class="form-control form-control-sm mb-2" required="true" />
+								<select class="form-select form-select-sm" {{on "change" (action (mut predicate.valueB) value="target.value" )}}>
+									<option value="days" selected={{eq predicate.valueB "days" }}>Days</option>
+									<option value="months" selected={{eq predicate.valueB "months" }}>Months</option>
+								</select>
+							{{else if (eq predicate.mode "between")}}
+								<div class="d-flex align-items-center">
+									<div>
+										<DateInput @value={{predicate.valueA}} class="form-control form-control-sm" required="true" @onChange={{fn (mut predicate.valueA)}} />
+									</div>
+									<div class="small mx-3">
+										and
+									</div>
+									<div>
+										<DateInput @value={{predicate.valueB}} class="form-control form-control-sm" required="true" @onChange={{fn (mut predicate.valueB)}} />
+									</div>
+								</div>
+							{{else}}
+								<DateInput @value={{predicate.valueA}} class="form-control form-control-sm" required="true" @onChange={{fn (mut predicate.valueA)}} />
+							{{/if}}
+
+						{{else}}
+
+							<select class="form-select form-select-sm" {{on "change" (fn this.select predicate)}}>
+								{{#each predicate.options as |opt|}}
+									<option value={{opt.value}} selected={{eq predicate.value opt.value}}>{{opt.label}}</option>
+								{{/each}}
+							</select>
+
+						{{/if}}
+					</listGroup.item>
+				{{/if}}
+
+			{{/each}}
+
+		</Ui::ListGroup>
+	</form>
 </Ui::Dropdown>
