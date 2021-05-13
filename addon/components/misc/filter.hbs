@@ -64,6 +64,15 @@
 								<DateInput @value={{predicate.valueA}} class="form-control form-control-sm" required="true" @onChange={{fn (mut predicate.valueA)}} />
 							{{/if}}
 
+						{{else if (eq predicate.type "multi")}}
+
+							{{#each predicate.options as |opt|}}
+								<div class="form-check">
+									<input checked={{includes opt.value predicate.value}} type="checkbox" id={{opt.value}} class="form-check-input" {{on "change" (fn this.toggleMulti predicate opt.value)}}>
+									<label class="form-check-label" for={{opt.value}}>{{opt.label}}</label>
+								</div>
+							{{/each}}
+
 						{{else}}
 
 							<select class="form-select form-select-sm" {{on "change" (fn this.select predicate)}}>

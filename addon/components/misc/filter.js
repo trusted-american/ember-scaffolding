@@ -14,13 +14,13 @@ import { filter } from '@ember/object/computed';
  *   name: string;
  *   key: string;
  *   value: any;
- *   type?: 'date';
+ *   type?: 'date'|'multi';
  *   options: { value: string, label: string }[];
  * }
  */
 
 export default class MiscFilterComponent extends Component {
-	@tracked options;
+	@tracked predicates;
 
 	constructor() {
 		super(...arguments);
@@ -50,11 +50,13 @@ export default class MiscFilterComponent extends Component {
 				}
 			}
 		});
+
+		this.predicates = this.args.predicates;
 	}
 
-	get predicates() {
-		return this.args.predicates;
-	}
+	// get predicates() {
+	// 	return this.args.predicates;
+	// }
 
 	@filter('args.predicates.@each.value', function (predicate) {
 		return !!predicate.value && !Array.isArray(predicate.value);
@@ -64,9 +66,25 @@ export default class MiscFilterComponent extends Component {
 		event.stopPropagation();
 
 		if (event.target.checked) {
-			set(predicate, 'value', predicate.type === 'date' ? true : predicate.options.firstObject.value);
+			set(predicate, 'value', predicate.type === 'date' || predicate.type === 'multi' ? true : predicate.options.firstObject.value);
 		} else {
-			set(predicate, 'value', predicate.type === 'date' ? [] : null);
+			set(predicate, 'value', predicate.type === 'date' || predicate.type === 'multi' ? [] : null);
+		}
+	}
+
+	@action toggleMulti(predicate, option, event) {
+		event.stopPropagation();
+
+		if (event.target.checked) {
+			if (predicate.value === true) {
+				set(predicate, 'value', []);
+			}
+			predicate.value.pushObject(option);
+		} else {
+			predicate.value.removeObject(option);
+			if (predicate.value.length === 0) {
+				set(predicate, 'value', true);
+			}
 		}
 	}
 
@@ -76,7 +94,7 @@ export default class MiscFilterComponent extends Component {
 
 	@action clear() {
 		this.predicates.setEach('value', null);
-		this.predicates.filter(({ type }) => type === 'date').setEach('value', []);
+		this.predicates.filter(({ type }) => type === 'date' || type === 'multi').setEach('value', []);
 		this.args.onChange(this.predicates);
 	}
 
@@ -118,6 +136,10 @@ export default class MiscFilterComponent extends Component {
 					value.lte = predicate.valueA;
 				}
 				set(predicate, 'value', value);
+			} else if (predicate.type === 'multi') {
+				if (predicate.value === true) {
+					set(predicate, 'value', []);
+				}
 			}
 			return predicate;
 		});
