@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { typeOf } from '@ember/utils';
-import { tracked } from '@glimmer/tracking';
+// import { tracked } from '@glimmer/tracking';
 import { action, set } from '@ember/object';
 import { filter } from '@ember/object/computed';
 
@@ -20,7 +20,7 @@ import { filter } from '@ember/object/computed';
  */
 
 export default class MiscFilterComponent extends Component {
-	@tracked predicates;
+	// @tracked predicates;
 
 	constructor() {
 		super(...arguments);
@@ -51,12 +51,12 @@ export default class MiscFilterComponent extends Component {
 			}
 		});
 
-		this.predicates = this.args.predicates;
+		// this.predicates = this.args.predicates;
 	}
 
-	// get predicates() {
-	// 	return this.args.predicates;
-	// }
+	get predicates() {
+		return this.args.predicates;
+	}
 
 	@filter('args.predicates.@each.value', function (predicate) {
 		return !!predicate.value && !Array.isArray(predicate.value);
