@@ -1,6 +1,6 @@
 <button
 	type={{if @submit "submit" "button"}}
-	class="btn {{if @isBlock "btn-block"}} {{if @size (concat "btn-" @size)}} btn-{{if @outline "outline-" ""}}{{if @color @color "secondary"}}"
+	class="btn {{if @size (concat "btn-" @size)}} btn-{{if @outline "outline-" ""}}{{if @color @color "secondary"}}"
 	disabled={{or @disabled @loading}}
 	{{on "click" (optional @onClick)}}
 	...attributes
