@@ -1,3 +1,5 @@
 <div class="dropdown-menu {{if (eq @align "right") "dropdown-menu-end"}}" {{did-insert this.didInsert}} ...attributes>
-	{{yield}}
+	{{yield (hash
+		item=(component "ui/dropdown/item")
+	)}}
 </div>
