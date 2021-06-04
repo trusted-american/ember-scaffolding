@@ -7,7 +7,7 @@ export default modifier(function tooltip(element, [title, placement = 'top']) {
 	element.setAttribute('title', title);
 
 	new bootstrap.Tooltip(element, {
-		// animation: false,
+		animation: false,
 	});
 
 	return () => {
