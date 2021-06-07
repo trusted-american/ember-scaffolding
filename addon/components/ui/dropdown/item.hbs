@@ -4,8 +4,12 @@
 	disabled={{@disabled}}
 	{{on "click" @onClick}}
 >
-	{{#if @icon}}
-		<FaIcon @icon={{@icon}} @fixedWidth={{true}} />&nbsp; 
+	{{#if (has-block)}}
+		{{yield}}
+	{{else}}
+		{{#if @icon}}
+			<FaIcon @icon={{@icon}} @fixedWidth={{true}} />&nbsp; 
+		{{/if}}
+		{{@label}}
 	{{/if}}
-	{{@label}}
 </button>
