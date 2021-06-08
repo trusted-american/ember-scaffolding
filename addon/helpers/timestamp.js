@@ -2,7 +2,7 @@ import { helper } from '@ember/component/helper';
 import { typeOf } from '@ember/utils';
 import moment from 'moment';
 
-export default helper(function timestamp([date, format], { number, year }) {
+export default helper(function timestamp([date, format], { number, year, utc }) {
 	if (!date) return null;
 
 	if (year) {
@@ -10,6 +10,10 @@ export default helper(function timestamp([date, format], { number, year }) {
 	}
 
 	let mom = typeOf(date) === 'number' ? moment.unix(date) : moment(date);
+
+	if (utc) {
+		mom = mom.utc(0);
+	}
 
 	if (number) {
 		return mom.format('MM/DD/YYYY');
