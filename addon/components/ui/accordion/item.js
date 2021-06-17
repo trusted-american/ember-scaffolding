@@ -1,10 +1,13 @@
 import Component from '@glimmer/component';
+import { guidFor } from '@ember/object/internals';
 
 /**
  * ARGS
- * header: string
- * index: number
+ * show?: boolean
  */
 
 export default class UiAccordionItemComponent extends Component {
+	get id() {
+		return guidFor(this);
+	}
 }
