@@ -73,6 +73,10 @@
 								</div>
 							{{/each}}
 
+						{{else if (eq predicate.type "string")}}
+
+							<Input @value={{predicate.value}} @type="text" class="form-control form-control-sm" />
+
 						{{else}}
 
 							<select class="form-select form-select-sm" {{on "change" (fn this.select predicate)}}>
