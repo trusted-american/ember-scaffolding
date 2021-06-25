@@ -3,14 +3,8 @@
 		{{yield}}
 	</modal.body>
 	<modal.footer>
-		<Ui::Toolbar as |toolbar|>
-			<toolbar.group as |group|>
-				<group.button @color={{if @color @color "danger"}} @disabled={{@disabled}} @loading={{@loading}} @onClick={{@onConfirm}}>{{@confirmTitle}}</group.button>
-			</toolbar.group>
-			<toolbar.group class="ms-2" as |group|>
-				<group.button @onClick={{@onCancel}}>Cancel</group.button>
-			</toolbar.group>
-		</Ui::Toolbar>
+		<Ui::Button @size="sm" @onClick={{@onCancel}}>Cancel</Ui::Button>
+		<Ui::Button @size="sm" @color={{if @color @color "danger"}} @disabled={{@disabled}} @loading={{@loading}} @onClick={{@onConfirm}}>{{@confirmTitle}}</Ui::Button>
 	</modal.footer>
 	{{!-- <div class="btn-toolbar" role="toolbar">
 		<div class="btn-group btn-group-sm me-2" role="group">
