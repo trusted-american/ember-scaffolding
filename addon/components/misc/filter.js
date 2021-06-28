@@ -66,9 +66,19 @@ export default class MiscFilterComponent extends Component {
 		event.stopPropagation();
 
 		if (event.target.checked) {
-			set(predicate, 'value', predicate.type === 'date' || predicate.type === 'multi' ? true : predicate.options.firstObject.value);
+			if (predicate.type === 'date' || predicate.type === 'multi') {
+				set(predicate, 'value', true);
+			} else if (predicate.type === 'string') {
+				set(predicate, 'value', ' ');
+			} else {
+				set(predicate, 'value', predicate.options.firstObject.value);
+			}
 		} else {
-			set(predicate, 'value', predicate.type === 'date' || predicate.type === 'multi' ? [] : null);
+			if (predicate.type === 'date' || predicate.type === 'multi') {
+				set(predicate, 'value', []);
+			} else {
+				set(predicate, 'value', null);
+			}
 		}
 	}
 
