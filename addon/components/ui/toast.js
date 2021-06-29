@@ -12,7 +12,7 @@ export default class UiToastComponent extends Component {
 
 	@action didInsert(element) {
 		this.toast = new bootstrap.Toast(element, {
-			
+			autohide: false,
 		});
 		this.toast.show();
 
