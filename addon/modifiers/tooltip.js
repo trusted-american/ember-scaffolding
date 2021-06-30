@@ -6,7 +6,7 @@ export default modifier(function tooltip(element, [title, placement = 'top']) {
 	element.setAttribute('data-bs-placement', placement);
 	element.setAttribute('title', title);
 
-	new bootstrap.Tooltip(element, {
+	const tooltip = new bootstrap.Tooltip(element, {
 		animation: false,
 	});
 
@@ -14,5 +14,7 @@ export default modifier(function tooltip(element, [title, placement = 'top']) {
 		element.removeAttribute('data-bs-toggle');
 		element.removeAttribute('data-bs-placement');
 		element.removeAttribute('title');
+
+		tooltip.dispose();
 	};
 });
