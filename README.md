@@ -30,10 +30,12 @@ This addon supplies the following conveniences:
 	* `{{dropdown}}`
 	* `{{tooltip}}`
 * Supplies various helpers:
+	* `{{age}}`
 	* `{{currency}}`
 	* `{{file-size}}`
 	* `{{from-now}}`
 	* `{{number}}`
+	* `{{percentage}}`
 	* `{{timestamp}}`
 * Installs `ember-cli-moment-shim`
 * Supplies helpers from `ember-truth-helpers` and `ember-composable-helpers`
