@@ -43,7 +43,7 @@
 							</select>
 
 							{{#if (eq predicate.mode "inTheLast")}}
-								<Input @value={{predicate.valueA}} @type="number" class="form-control form-control-sm mb-2" required="true" />
+								<Input @value={{predicate.valueA}} @type="number" class="form-control form-control-sm mb-2" required />
 								<select class="form-select form-select-sm" {{on "change" (action (mut predicate.valueB) value="target.value" )}}>
 									<option value="days" selected={{eq predicate.valueB "days" }}>Days</option>
 									<option value="months" selected={{eq predicate.valueB "months" }}>Months</option>
@@ -51,17 +51,17 @@
 							{{else if (eq predicate.mode "between")}}
 								<div class="d-flex align-items-center">
 									<div>
-										<DateInput @value={{predicate.valueA}} class="form-control form-control-sm" required="true" @onChange={{fn (mut predicate.valueA)}} />
+										<DateInput @value={{predicate.valueA}} class="form-control form-control-sm" required @onChange={{fn (mut predicate.valueA)}} />
 									</div>
 									<div class="small mx-3">
 										and
 									</div>
 									<div>
-										<DateInput @value={{predicate.valueB}} class="form-control form-control-sm" required="true" @onChange={{fn (mut predicate.valueB)}} />
+										<DateInput @value={{predicate.valueB}} class="form-control form-control-sm" required @onChange={{fn (mut predicate.valueB)}} />
 									</div>
 								</div>
 							{{else}}
-								<DateInput @value={{predicate.valueA}} class="form-control form-control-sm" required="true" @onChange={{fn (mut predicate.valueA)}} />
+								<DateInput @value={{predicate.valueA}} class="form-control form-control-sm" required @onChange={{fn (mut predicate.valueA)}} />
 							{{/if}}
 
 						{{else if (eq predicate.type "multi")}}
