@@ -77,7 +77,7 @@ export default class MiscFilterComponent extends Component {
 			if (predicate.type === 'date' || predicate.type === 'multi') {
 				set(predicate, 'value', []);
 			} else {
-				set(predicate, 'value', null);
+				set(predicate, 'value', undefined);
 			}
 		}
 	}
@@ -103,7 +103,7 @@ export default class MiscFilterComponent extends Component {
 	}
 
 	@action clear() {
-		this.predicates.setEach('value', null);
+		this.predicates.setEach('value', undefined);
 		this.predicates.filter(({ type }) => type === 'date' || type === 'multi').setEach('value', []);
 		this.args.onChange(this.predicates);
 	}
