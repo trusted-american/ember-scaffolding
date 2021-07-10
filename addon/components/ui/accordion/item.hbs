@@ -4,7 +4,7 @@
 			button=(component "ui/accordion/button" item=this show=@show)
 		)}}
 	</h2>
-	<div class="accordion-collapse collapse {{if @show "show"}}" id={{this.id}} data-bs-parent="#{{@accordion.id}}">
+	<div class="accordion-collapse collapse {{if @show "show"}}" id={{this.id}} data-bs-parent={{unless @accordion.alwaysOpen (concat "#" @accordion.id)}}>
 		{{yield (hash
 			body=(component "ui/accordion/body")
 		)}}
