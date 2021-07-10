@@ -1,8 +1,12 @@
 <div class="accordion-item" ...attributes>
 	<h2 class="accordion-header">
-		{{yield (hash button=(component "ui/accordion/button" id=this.id show=@show))}}
+		{{yield (hash
+			button=(component "ui/accordion/button" item=this show=@show)
+		)}}
 	</h2>
-	<div id="collapse{{this.id}}" class="accordion-collapse collapse {{if @show "show"}}" data-bs-parent="#accordion">
-		{{yield (hash body=(component "ui/accordion/body"))}}
+	<div class="accordion-collapse collapse {{if @show "show"}}" id={{this.id}} data-bs-parent="#{{@accordion.id}}">
+		{{yield (hash
+			body=(component "ui/accordion/body")
+		)}}
 	</div>
 </div>

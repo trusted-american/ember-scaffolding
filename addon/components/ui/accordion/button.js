@@ -2,9 +2,8 @@ import Component from '@glimmer/component';
 
 /**
  * ARGS
- * id: string
+ * item: UiAccordionItemComponent
  * show?: boolean
  */
 
-export default class UiAccordionButtonComponent extends Component {
-}
+export default class UiAccordionButtonComponent extends Component {}
