@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import UiBaseComponent from '../base';
 import { guidFor } from '@ember/object/internals';
 
 /**
@@ -6,7 +6,7 @@ import { guidFor } from '@ember/object/internals';
  * show?: boolean
  */
 
-export default class UiAccordionItemComponent extends Component {
+export default class UiAccordionItemComponent extends UiBaseComponent {
 	get id() {
 		return guidFor(this);
 	}

@@ -1,8 +1,8 @@
-import Component from '@glimmer/component';
+import UiBaseComponent from './base';
 
 /**
  * ARGS
+ * flush?: boolean
  */
 
-export default class UiListGroupComponent extends Component {
-}
+export default class UiListGroupComponent extends UiBaseComponent {}

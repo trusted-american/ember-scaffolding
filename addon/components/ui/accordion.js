@@ -1,8 +1,8 @@
-import Component from '@glimmer/component';
+import UiBaseComponent from './base';
 
 /**
  * ARGS
+ * flush?: boolean
  */
 
-export default class UiAccordionComponent extends Component {
-}
+export default class UiAccordionComponent extends UiBaseComponent {}

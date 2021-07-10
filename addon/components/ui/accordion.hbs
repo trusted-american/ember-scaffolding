@@ -1,4 +1,4 @@
-<div class="accordion" id="accordion" ...attributes>
+<div class="accordion {{if @flush "accordion-flush"}}" id="accordion" ...attributes>
 	{{yield (hash
 		item=(component "ui/accordion/item")
 	)}}
