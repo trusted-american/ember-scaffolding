@@ -1,1 +1,0 @@
-export { default } from 'ember-scaffolding/components/misc/confirmation-dialog';

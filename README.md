@@ -1,7 +1,7 @@
 ember-scaffolding
 ==============================================================================
 
-[Short description of the addon.]
+The goal of the addon is to provide an as close as possible representation of the components provided by Bootstrap.
 
 
 Compatibility
@@ -14,6 +14,18 @@ Compatibility
 
 Installation
 ------------------------------------------------------------------------------
+
+This addon requires that you have `ember-cli-sass` and `bootstrap` as dependencies.
+
+```
+npm install --save-dev ember-cli-sass bootstrap
+```
+
+- Add `app.import('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js');` to `ember-cli-build.js`
+- Change `app.css` to `app.scss`
+- Add `@import "node_modules/bootstrap/scss/bootstrap";` to `app.scss`
+
+You can now install the addon itself.
 
 ```
 ember install ember-scaffolding
@@ -42,6 +54,7 @@ This addon supplies the following conveniences:
 * Supplies various UI components:
 	* `<Ui::Accordion />`
 	* `<Ui::Alert />`
+	* `<Ui::Breadcrumb />`
 	* `<Ui::Button />`
 	* `<Ui::Card />`
 	* `<Ui::Dropdown />`
@@ -49,17 +62,18 @@ This addon supplies the following conveniences:
 	* `<Ui::ListGroup />`
 	* `<Ui::Modal />`
 	* `<Ui::Nav />`
+	* `<Ui::Offcanvas />`
 	* `<Ui::Pagination />`
 	* `<Ui::Progress />`
 	* `<Ui::PropertyList />`
 	* `<Ui::Radio />`
+	* `<Ui::Select />`
 	* `<Ui::Spinner />`
+	* `<Ui::SpinnerOverlay />`
 	* `<Ui::Subheading />`
 	* `<Ui::Table />`
+	* `<Ui::Toast />`
 	* `<Ui::Toolbar />`
-	* `<Misc::ConfirmationDialog />`
-	* `<Misc::Filter />`
-	* `<Misc::Placeholder />`
 
 
 Contributing
