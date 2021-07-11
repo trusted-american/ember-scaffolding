@@ -49,8 +49,7 @@ This addon supplies the following conveniences:
 	* `{{number}}`
 	* `{{percentage}}`
 	* `{{timestamp}}`
-* Installs `ember-cli-moment-shim`
-* Supplies helpers from `ember-truth-helpers` and `ember-composable-helpers`
+* Installs `ember-cli-moment-shim`, `ember-truth-helpers`, and `ember-composable-helpers`
 * Supplies various UI components:
 	* `<Ui::Accordion />`
 	* `<Ui::Alert />`
