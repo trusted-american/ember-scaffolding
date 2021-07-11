@@ -1,6 +1,6 @@
 {
   "name": "ember-scaffolding",
-  "version": "1.1.51",
+  "version": "1.1.52",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon"
