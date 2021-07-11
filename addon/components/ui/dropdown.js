@@ -8,14 +8,14 @@ import { action } from '@ember/object';
  */
 
 export default class UiDropdownComponent extends Component {
-	@action didInsert(element) {
-		if (this.args.linger) {
-			element.addEventListener('click', event => {
-				let { classList } = event.target;
-				if (!classList.contains('dropdown-item') || classList.contains('linger')) {
-					event.stopPropagation();
-				}
-			});
-		}
-	}
+	// @action didInsert(element) {
+	// 	if (this.args.linger) {
+	// 		element.addEventListener('click', event => {
+	// 			let { classList } = event.target;
+	// 			if (!classList.contains('dropdown-item') || classList.contains('linger')) {
+	// 				event.stopPropagation();
+	// 			}
+	// 		});
+	// 	}
+	// }
 }
