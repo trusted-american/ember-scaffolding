@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 /**
  * ARGS
- * submit?: boolean
+ * isSubmit?: boolean
  * size?: 'sm'|'lg'
  * outline?: boolean
  * color?: string = 'secondary'
